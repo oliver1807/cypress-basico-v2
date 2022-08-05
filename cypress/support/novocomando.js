@@ -1,0 +1,11 @@
+Cypress.Commands.add('fillMandatoryFieldsAndSubmit', function (nome,sobrenome,email,mensagem){
+    cy.get('#firstName')
+            .should('be.visible')
+    .type(nome, {delay:0})
+    cy.get('#lastName').type(sobrenome, {delay:0})
+    cy.get('#email').type(email, {delay:0})
+    cy.get('#product').select('Mentoria')
+    cy.get(':nth-child(3) > input').check()
+    cy.get('#open-text-area').type(mensagem, {delay:0})
+    cy.get('.button').click()
+})
